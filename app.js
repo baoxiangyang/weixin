@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var xmlParser = require('./modules/xmlParser.js');
-var weixinToken = require('./modules/accessToken');
+var weixinToken = require('./modules/weixinApi/accessToken');
 var index = require('./routes/index');
 var weixin = require('./routes/weixin');
 
@@ -46,9 +46,9 @@ app.use(function(err, req, res, next) {
 });
 https.createServer({key:fs.readFileSync('./config/key.pem'), 
   cert:fs.readFileSync('./config/key-cert.pem')}, app).listen(443, function(){
-	/*weixinToken();
+	weixinToken();
 	setInterval(function(){
 		weixinToken();
-	}, 6600000);*/
+	}, 6600000);
 });
 module.exports = app;
