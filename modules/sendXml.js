@@ -6,7 +6,10 @@ module.exports = function(res, data, callBack){
 	}else{
 		data.FromUserName = 'B-XY9301'
 		let xml = builder.buildObject({'xml': data});
-		res.send(xml);
+		let str = '<xml><ToUserName>oZz9bw6wDYpBlZUde8gqHa--tWoU</ToUserName>'+
+'<CreateTime>'+new Date().getTime()+'</CreateTime>'+
+'<MsgType>text</MsgType><Content>sbsbs</Content><FromUserName>B-XY9301</FromUserName></xml>';
+		res.send(str);
 	}
 	if(callBack) callBack();
 };
