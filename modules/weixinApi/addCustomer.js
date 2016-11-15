@@ -7,12 +7,11 @@ module.exports =  function(json, callback){
    "password" : "123456",
 	};
 	console.log(global.weixinToken);
-	var option = {
-		headers: {'Connection': 'close', 'Content-Type': 'application/json; charset=utf-8'},
-		url: 'https://api.weixin.qq.com/customservice/kfaccount/add?access_token='+ global.weixinToken,
-		body: data
-	}
-	request(option, function(err, _res, body){
-		callback(err, _res, body);
-	});
+	request.post('https://api.weixin.qq.com/customservice/kfaccount/add?access_token='+ global.weixinToken.access_token, {'form':data}, function(err,httpResponse,body){
+		if(err){
+			callback(err)
+		}else{
+			callback(null, body);
+		}
+	})
 }

@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.send(req.query.echostr);
 });
 router.get('/addCustomer', function(req, res, next) {
-  addCustomer(null, function(err, _res, body){
+  addCustomer(null, function(err, body){
   	res.send(body);
   })
 });

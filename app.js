@@ -50,6 +50,7 @@ https.createServer({key:fs.readFileSync('./config/key.pem'),
 	setInterval(function(){
 		weixinToken();
 	}, 6600000);*/
-  global.weixinToken = "bfGxe-aKauQd0QiUUVlzmikZmjDRg5YKTCRh2e-TAytqwF2qRfy7WHn2GnCedGVZOZ9RptnWAGTzEmw3n2jDLF5_e6vhb7FH71EVDnh6ExkqNqVZqxNKRpNIksYeaTT_JXUfAEAPDA"
+  global.weixinToken = {};
+  global.weixinToken.access_token = "bfGxe-aKauQd0QiUUVlzmikZmjDRg5YKTCRh2e-TAytqwF2qRfy7WHn2GnCedGVZOZ9RptnWAGTzEmw3n2jDLF5_e6vhb7FH71EVDnh6ExkqNqVZqxNKRpNIksYeaTT_JXUfAEAPDA"
 });
 module.exports = app;
