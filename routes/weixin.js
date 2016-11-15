@@ -1,15 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var sendXml = require('../modules/weixinApi/sendXml.js');
-var addCustomer = require('../modules/weixinApi/addCustomer.js');
+var post = require('../modules/weixinApi/requestPost.js');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send(req.query.echostr);
-});
-router.get('/addCustomer', function(req, res, next) {
-  addCustomer(null, function(err, body){
-  	res.send(body);
-  })
 });
 router.post('/', function(req, res, next) {
 	console.log('reqBody' + req.bodyXml);
