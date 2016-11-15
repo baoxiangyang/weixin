@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var xmlParser = require('./modules/xmlParser.js');
-var weixinToken = require('./modules/accessToken')
+var weixinToken = require('./modules/accessToken');
 var index = require('./routes/index');
 var weixin = require('./routes/weixin');
 

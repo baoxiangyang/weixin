@@ -22,5 +22,5 @@ module.exports = function(callback){
 	}).on('error', function(err){
 		console.log('get access token fail!');
 		if(callback) callback(err);
-	})
-}
+	});
+};
