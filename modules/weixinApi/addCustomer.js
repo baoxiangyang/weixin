@@ -1,6 +1,6 @@
 //添加客服接口
 var request = require('request');
-modele.exports =  function(json, callback){
+module.exports =  function(json, callback){
 	let data = json || {
    "kf_account" : "test1@test",
    "nickname" : "客服1",
