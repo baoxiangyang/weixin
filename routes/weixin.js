@@ -11,7 +11,7 @@ router.post('/', function(req, res, next) {
 	json.ToUserName = req.bodyXml.FromUserName;
 	json.CreateTime = new Date().getTime();
 	json.MsgType = 'text';
-	json.Content = '你是';
+	json.Content = '你是sb';
 	console.log(json);
 	sendXml(res,json)
 });
