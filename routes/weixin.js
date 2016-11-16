@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.send(req.query.echostr);
 });
 router.post('/', function(req, res, next) {
-	console.log('reqBody' + req.bodyXml);
+	console.log(req.bodyXml);
 	let json = {};
 	json.ToUserName = req.bodyXml.FromUserName;
 	json.CreateTime = new Date().getTime();
