@@ -47,7 +47,7 @@
      	var json = {
      		url: $('input[name="url"]').val(),
      		postData: JSON.parse($('#postData').val()),
-     		method: $('input[name="method"]').val(),
+     		method: $('input[name="method"]:checked').val(),
      		token: $('input[name="token"]').prop('checked'),
      		xml: $('input[name="xml"]').prop('checked')
      	};
