@@ -61,7 +61,7 @@
 			success: function(result){
 				$('.alert-danger').html(result.error);
 				$('.alert-success').html(result.body);
-				$('.alert-info').html(result.res);
+				$('.alert-info').html(result._res);
 			},
 			error: function(e){
 				$('.alert-danger').html(e);

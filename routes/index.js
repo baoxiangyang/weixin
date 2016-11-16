@@ -1,7 +1,8 @@
 var express = require('express'),
 		router = express.Router(),
 		pull = require('../modules/pullCode'),
- 		querystring = require('querystring');
+ 		querystring = require('querystring'),
+ 		myRequest = require('../modules/myRequest.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -15,15 +16,24 @@ router.get('/pullCode', function(req, res, next) {
   });
 });
 router.post('/postData', function(req, res, next) {
+	let url = req.body.url;
  	if(req.body.method == 'POST'){
-	
- 	}else{
- 		let url = req.body.url + ;
 		if(req.body.token){
-
-		}else{
-
-		}
- 	}
+	 		url +='access_token=' + global.weixinToken.access_token;
+	 	}
+	 	myRequest(url, req.body.method, req.body.postData, function(err, _res, body){
+	 		res.send({err:err, body:body, _res: _res})
+	 	})
+ 	}else{
+ 		if(Object.keys(req.body.postData).length){
+ 			url += querystring.stringify(req.body.postData);
+ 			if(req.body.token){
+ 				url += '&access_token=' + global.weixinToken.access_token;;
+ 			}
+ 		}
+ 			myRequest(url, req.body.method, null, function(err, _res, body){
+	 		res.send({err:err, body:body, _res: _res})
+	 	})
+ 	}	
 });
 module.exports = router;
