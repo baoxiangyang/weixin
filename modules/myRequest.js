@@ -6,7 +6,7 @@ module.exports =  function(url, method, data, callback){
 			callback(error,httpResponse, body);
 		})
 	}else{
-		request(url, function (error, response, body) {
+		request(url, function (error, httpResponse, body) {
 		 callback(error,httpResponse, body);
 		})
 	}
