@@ -44,6 +44,12 @@
   </body>
   <script>
      $('button').click(function(event){
+     	try {
+     		JSON.parse($('#postData').val());
+     	}catch(e){
+     		console.log(e);
+     		return false;
+     	}
      	var json = {
      		url: $('input[name="url"]').val(),
      		postData: JSON.parse($('#postData').val()),
