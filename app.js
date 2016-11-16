@@ -46,11 +46,9 @@ app.use(function(err, req, res, next) {
 });
 https.createServer({key:fs.readFileSync('./config/key.pem'), 
   cert:fs.readFileSync('./config/key-cert.pem')}, app).listen(443, function(){
-	/*weixinToken();
+	weixinToken();
 	setInterval(function(){
 		weixinToken();
-	}, 6600000);*/
-  global.weixinToken = {};
-  global.weixinToken.access_token = "bfGxe-aKauQd0QiUUVlzmikZmjDRg5YKTCRh2e-TAytqwF2qRfy7WHn2GnCedGVZOZ9RptnWAGTzEmw3n2jDLF5_e6vhb7FH71EVDnh6ExkqNqVZqxNKRpNIksYeaTT_JXUfAEAPDA"
+	}, 6600000);
 });
 module.exports = app;
