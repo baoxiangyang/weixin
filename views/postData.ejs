@@ -44,6 +44,7 @@
   </body>
   <script>
      $('button').click(function(event){
+     	event.preventDefault();
      	try {
      		JSON.parse($('#postData').val());
      	}catch(e){
@@ -73,7 +74,6 @@
 				$('.alert-danger').html(e);
 			}
      	});
-     	event.preventDefault();
      });
   </script>
 </html>
