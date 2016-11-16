@@ -22,18 +22,22 @@ router.post('/postData', function(req, res, next) {
 	 		url +='access_token=' + global.weixinToken.access_token;
 	 	}
 	 	myRequest(url, req.body.method, req.body.postData, function(err, _res, body){
-	 		res.send({err:err, body:body, _res: _res})
-	 	})
+	 		res.send({err:err, body:body, _res: _res});
+	 	});
  	}else{
  		if(Object.keys(req.body.postData).length){
  			url += querystring.stringify(req.body.postData);
  			if(req.body.token){
- 				url += '&access_token=' + global.weixinToken.access_token;;
+ 				url += '&access_token=' + global.weixinToken.access_token;
+ 			}
+ 		}else{
+ 			if(req.body.token){
+ 				url += 'access_token=' + global.weixinToken.access_token;
  			}
  		}
- 			myRequest(url, req.body.method, null, function(err, _res, body){
-	 		res.send({err:err, body:body, _res: _res})
-	 	})
+ 		myRequest(url, req.body.method, null, function(err, _res, body){
+	 		res.send({err:err, body:body, _res: _res});
+	 	});
  	}	
 });
 module.exports = router;
