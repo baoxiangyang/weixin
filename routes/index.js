@@ -40,4 +40,9 @@ router.post('/postData', function(req, res, next) {
 	 	});
  	}	
 });
+router.post('/postJson', function(req, res, next) {
+  console.log(req.body);
+  console.log(req.file);
+  res.send('ssss');
+});
 module.exports = router;
