@@ -5,12 +5,13 @@ module.exports = function(req, res, next){
 	json.CreateTime = new Date().getTime();
 	json.MsgType = 'news';
 	json.ArticleCount =  1;
-	json.Articles = [{
+	json.Articles = {};
+	json.Articles.item = {
 		Title: '小包总',
 		Description: '支持小包总',
 		PicUrl: 'http://mmbiz.qpic.cn/mmbiz_jpg/YBFfQzKkqhvgxMqFRhS9m9ByFLvnJwicvSlK38wMp7L5fOqJr3MrJdHtX2E78vnUnLHHibLPKTbhvqlpZmTyeanA/0?wx_fmt=jpeg',
 		Url: 'https://github.com/baoxiangyang'
-	}];
+	};
 	json.Content = 'hello SB!!!';
 	sendXml(res, json);
 };
