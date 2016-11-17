@@ -2,7 +2,9 @@ var express = require('express'),
 		router = express.Router(),
 		pull = require('../modules/pullCode'),
  		querystring = require('querystring'),
- 		myRequest = require('../modules/myRequest.js');
+ 		myRequest = require('../modules/myRequest.js'),
+ 		myRequestFile = require('../modules/myRequestFile.js'),
+ 		fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -40,9 +42,22 @@ router.post('/postData', function(req, res, next) {
 	 	});
  	}	
 });
-router.post('/postJson', function(req, res, next) {
-  console.log(req.body);
-  console.log(req.file);
-  res.send('ssss');
+router.post('/postFile', function(req, res, next) {
+	let url = req.body.url + '?&access_token=' + global.weixinToken.access_token;
+	let json = null;
+	if(req.body.type == 'video'){
+  	json = {
+  		title: req.body.title,
+  		introduction: req.body.introduction
+  	};
+  }
+  myRequestFile(url, json, req.files[0], function(err, _res, body){
+  	fs.unlinkSync(req.files[0].path);
+  	res.send({
+  		err:err,
+  		_res: _res,
+  		body:body
+  	});
+  });
 });
 module.exports = router;
