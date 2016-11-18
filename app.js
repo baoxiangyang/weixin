@@ -53,4 +53,10 @@ app.use(function(err, req, res, next) {
 		weixinToken();
 	}, 6600000);
 });*/
+app.listen(function(){
+  weixinToken();
+  setInterval(function(){
+    weixinToken();
+  }, 6600000);
+})
 module.exports = app;
