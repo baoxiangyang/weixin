@@ -10,7 +10,7 @@ module.exports = function(req, res, next){
 		Title: '小包总',
 		Description: '支持小包总',
 		PicUrl: 'http://mmbiz.qpic.cn/mmbiz_jpg/YBFfQzKkqhvgxMqFRhS9m9ByFLvnJwicvSlK38wMp7L5fOqJr3MrJdHtX2E78vnUnLHHibLPKTbhvqlpZmTyeanA/0?wx_fmt=jpeg',
-		Url: '103.214.169.137'
+		Url: 'https://github.com/baoxiangyang'
 	};
 	//json.Content = 'hello SB!!!';
 	sendXml(res, json);
