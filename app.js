@@ -46,17 +46,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-/*https.createServer({key:fs.readFileSync('./config/key.pem'), 
+https.createServer({key:fs.readFileSync('./config/key.pem'), 
   cert:fs.readFileSync('./config/key-cert.pem')}, app).listen(443, function(){
 	weixinToken();
 	setInterval(function(){
 		weixinToken();
 	}, 6600000);
-});*/
-app.listen(function(){
-  weixinToken();
-  setInterval(function(){
-    weixinToken();
-  }, 6600000);
-})
+});
 module.exports = app;
