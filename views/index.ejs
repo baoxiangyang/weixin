@@ -15,7 +15,7 @@
   </body>
   <script type="text/javascript" charset="utf-8">
   	var timestamp = new Date().getTime(), nonceStr = 'xybao'; 
-  	var str = 'noncestr=' + nonceStr + '&jsapi_ticket=' + $('.ticket').text() + '&timestamp=' + timestamp + '&url=https:103.214.169.137/';
+  	var str = 'noncestr=' + nonceStr + '&jsapi_ticket=' + $('.ticket').text() + '&timestamp=' + timestamp + '&url=' + document.location.href;
   	wx.config({
   		debug: true,
   		appid:'wxba6005f1e61bdfaa',
