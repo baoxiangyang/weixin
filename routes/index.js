@@ -7,7 +7,9 @@ var express = require('express'),
  		fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  myRequest('https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=' + global.weixinToken.access_token,'GET', null, function(err, _res,body){
+    res.render('index', { title: 'weixin js-sdk' , ticket: body.ticket});
+  });  
 });
 router.get('/postData', function(req, res, next) {
   res.render('postData', { title: '调用微信接口' });
