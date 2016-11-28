@@ -1,5 +1,3 @@
-var https = require('https');
-var fs = require('fs');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var xmlParser = require('./modules/xmlParser.js');
-var weixinToken = require('./modules/weixinApi/accessToken');
 var index = require('./routes/index');
 var weixin = require('./routes/weixin');
 var upload = multer({ dest: 'uploads/' });
@@ -46,11 +43,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-https.createServer({key:fs.readFileSync('./config/key.pem'), 
+/*https.createServer({key:fs.readFileSync('./config/key.pem'), 
   cert:fs.readFileSync('./config/key-cert.pem')}, app).listen(443, function(){
 	weixinToken();
 	setInterval(function(){
 		weixinToken();
 	}, 6600000);
-});
+});*/
 module.exports = app;
