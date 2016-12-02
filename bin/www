@@ -14,7 +14,7 @@ var weixinToken = require('../modules/weixinApi/accessToken');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '443');
 app.set('port', port);
 
 /**
@@ -22,8 +22,8 @@ app.set('port', port);
  */
 
 var server = https.createServer({
-  key:fs.readFileSync('./config/key.pem'), 
-  cert:fs.readFileSync('./config/key-cert.pem')
+  key:fs.readFileSync('./config/key.pem', 'utf8'), 
+  cert:fs.readFileSync('./config/key-cert.pem', 'utf8')
 },app);
 
 /**
