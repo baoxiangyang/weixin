@@ -12,37 +12,7 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <p>ticket: <span class="ticket"><%= ticket%></span></p>
+    <footer><a href="http://www.miitbeian.gov.cn">2016-2017 ©版权所有 渝ICP备16013153号-1</a></footer>
   </body>
-  <script type="text/javascript" charset="utf-8">
-  	var timestamp = new Date().getTime(), nonceStr = 'xybao'; 
-  	var str = 'noncestr=' + nonceStr + '&jsapi_ticket=' + $('.ticket').text() + '&timestamp=' + timestamp + '&url=' + document.location.href;
-  	wx.config({
-  		debug: true,
-  		appid:'wxba6005f1e61bdfaa',
-  		timestamp: timestamp,
-  		nonceStr: nonceStr,
-  		signature: hex_sha1(str),
-  		jsApiList:['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo',
-  			'onMenuShareQZone','startRecord','stopRecord','onVoiceRecordEnd','playVoice','pauseVoice',
-  			'stopVoice','onVoicePlayEnd','uploadVoice','downloadVoice','chooseImage','previewImage','uploadImage',
-  			'downloadImage','translateVoice','getNetworkType','openLocation','getLocation','hideOptionMenu',
-  			'showOptionMenu','hideMenuItems','showMenuItems','hideAllNonBaseMenuItem','showAllNonBaseMenuItem',
-  			'closeWindow','scanQRCode','chooseWXPay','openProductSpecificView','addCard','chooseCard','openCard']
-  	});
-  	wx.ready(function(){
-		wx.getNetworkType({
-		    success: function (res) {
-		        var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
-		        console.log(res);
-		    },
-		    fail: function(e){
-		    	console.log(e);
-		    }
-		});
-  	});
-  	wx.error(function(res){
-  		alert(res);
-  	});
-  </script>
+  
 </html>

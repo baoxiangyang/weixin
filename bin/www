@@ -22,8 +22,8 @@ app.set('port', port);
  */
 
 var server = https.createServer({
-  key:fs.readFileSync('./config/key.pem', 'utf8'), 
-  cert:fs.readFileSync('./config/key-cert.pem', 'utf8')
+  key:fs.readFileSync('./config/ssl/2_www.xiaobaozong.cn.key', 'utf8'), 
+  cert:fs.readFileSync('./config/ssl/1_www.xiaobaozong.cn_bundle.crt', 'utf8')
 },app);
 
 /**
